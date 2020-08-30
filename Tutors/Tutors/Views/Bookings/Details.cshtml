@@ -1,0 +1,78 @@
+﻿@model Tutors.Data.User
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2> @ViewBag.Title </h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">@Model.Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                             <dl class="dl-horizontal">
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Email)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Address)
+                                </dd>
+                            </dl>
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>Gender:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Birth:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Curriculum Strengths:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.<td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone Number:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teaching Biography:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teaching Strengths:</td>
+                                            <td>Lorem ipsum dolor sit amet, in tale minim torquatos vix.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-primary" href="@Url.Action("SearchSubjects/Home","Subject")">Return To Tutor List</a>
+                                                <br/>
+                                                <br/>
+                                                <a href="#" class="btn btn-primary">Tutor Booking Screen</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+             </div>
+              

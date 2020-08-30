@@ -1,0 +1,96 @@
+﻿@model List<Tutors.Data.View_Model.TutorViewModel>
+
+<div class="container">
+    <h2>Search</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">How to search</div>
+        <div class="panel-body">Search for tutors by subject, location, level and age range</div>
+    </div>
+</div>
+
+<div class="container">
+
+
+    @using (Html.BeginForm("SearchSubjects", "Subject"))
+    {
+        <center>@Html.TextBox("Search", null , new { @class = "form-control" })</center>
+        <br />
+        <input type="submit" class="btn btn-primary btn-block" value="search" />
+        <br />
+    }
+
+    @if (Request.HttpMethod == "POST")
+    {
+      
+            <table class="table" id="resultsgrid">
+
+                <tr>
+                 
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                          Age Range
+                        </th>
+                    <th>
+                       Location
+                    </th>
+                    <th>
+                       Level 
+                    </th>
+                    <th>
+                      Subject 
+                    </th>
+                    <th>Book Lesson</th>
+
+                </tr>
+
+
+                @foreach (var i in Model)
+                {
+
+                <tr>
+                  
+                    <td>
+
+                        @Html.DisplayFor(modelItem => i.Name)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => i.AgeRange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.Level)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.SubjectName)
+                    </td>
+                    <td>
+                        <a class="btn-btn-primary" href="@Url.Action("Details", "Bookings" , new {id=@i.TutorId})">
+                            <button type="button" class="btn btn-primary">View Profile</button>
+                        </a>
+                    </td>
+
+
+
+
+                </tr>
+
+
+
+                }
+
+
+
+            </table>
+        
+
+    }
+
+</div>
+
+
