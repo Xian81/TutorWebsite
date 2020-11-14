@@ -4,30 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tutors.Data.View_Model;
+using Tutors.Data.DAO;
+
+
+
 
 namespace Tutors.Data.IDAO
 {
     
 
 
-    public interface ISubjectDAO
+  public interface ISubjectDAO
     {
 
-        List<Subject> getSubjects();
+        List<Subject> GetSubjects();
 
-        Subject getSubject(int id);
+        Subject GetSubject(int id);
 
-        void editSubject(int? id);
+        void EditSubject(int? id);
 
-        void deleteSubject(Subject subject);
+        void DeleteSubject(Subject subject);
 
-        List<User> users();
+        List<User> Users();
 
-        void addSubject(Subject subject);
+        void AddSubject(Subject subject);
 
-        TutorViewModel getTutorViewModel(int id);
+        TutorViewModel GetTutorViewModel(int id);
 
-        List<TutorViewModel> searchSubjects(string search);
-        List<TutorViewModel> searchSubjects();
+        List<TutorViewModel> SearchSubjects(string search);
+
+        List<TutorViewModel> SearchSubjects();
     }
 }
