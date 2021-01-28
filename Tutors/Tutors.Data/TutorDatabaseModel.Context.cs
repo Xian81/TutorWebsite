@@ -16,7 +16,7 @@ namespace Tutors.Data
     public partial class TutorDatabaseContext : DbContext
     {
         public TutorDatabaseContext()
-            : base("name=TutorDatabaseContext")
+            : base("name=Tutorsdatabase")
         {
         }
     
