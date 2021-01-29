@@ -7,7 +7,7 @@
       <Diagram DiagramId="944aa45dfb6b427cb7232bf6b6d60bf5" Name="Diagram1">
         <EntityTypeShape EntityType="TutorsdatabaseModel.Booking" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorsdatabaseModel.Role" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorsdatabaseModel.Subject" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorsdatabaseModel.Subject" Width="1.5" PointX="0.875" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorsdatabaseModel.Tutor" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorsdatabaseModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="TutorsdatabaseModel.FK_Tutors" ManuallyRouted="false" />

@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tutors.Data.IDAO;
 using Tutors.Data.View_Model;
 
 namespace Tutors.Data.DAO
 
 {
-    public class SubjectDAO : ISubjectDAO
+    public class SubjectDAO : ISubjectDAO 
 
     {
         private TutorDatabaseContext _context;
 
-       
+
 
         public SubjectDAO()
         {
@@ -38,12 +35,12 @@ namespace Tutors.Data.DAO
 
             var _subject = from subject
                       in _context.Subjects
-                        where subject.TutorId == id
-                        select subject;
+                           where subject.TutorId == id
+                           select subject;
             return _subject.FirstOrDefault();
 
 
-           
+
 
         }
 
@@ -116,7 +113,7 @@ namespace Tutors.Data.DAO
         {
             IQueryable<TutorViewModel> _tutorviewmodel = from subject in _context.Subjects
                                                          from user in _context.Users
-                                                         
+
                                                          select new TutorViewModel
                                                          {
                                                              TutorId = subject.TutorId,
@@ -132,6 +129,8 @@ namespace Tutors.Data.DAO
 
             return _tutorviewmodel.ToList();
         }
+
+      
     }
 
 
