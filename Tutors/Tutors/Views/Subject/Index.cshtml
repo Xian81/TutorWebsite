@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<Tutors.Data.Subject>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+        @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+          <td>
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.SubjectID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SubjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SubjectID })
+        </td>
+    </tr>
+    }
+
+</table>
+

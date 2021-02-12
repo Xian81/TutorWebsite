@@ -33,7 +33,7 @@ namespace Tutors.Data.DAO
     public Booking GetBooking(int id)
         {
             var _booking = from booking in _context.Bookings
-                           where booking.Id == id
+                           where booking.BookingID == id
                            select booking;
                            return _booking.FirstOrDefault();
             
@@ -63,7 +63,7 @@ namespace Tutors.Data.DAO
         public User Booking (int id)
         {
             var _User = from users in _context.Users
-                        where users.Id == id
+                        where users.UserID == id
                         select users;
             return _User.FirstOrDefault();  
 

@@ -62,7 +62,7 @@ namespace Tutors.Controllers
             {
                 // TODO: Add update logic here
                 _bookingService.EditBooking(booking);
-                return RedirectToAction("Indexthree", new { id = booking.Id, controller = "Bookings" });
+                return RedirectToAction("Indexthree", new { id = booking.BookingID, controller = "Bookings" });
             }
             catch (Exception ex)
             {
@@ -85,10 +85,10 @@ namespace Tutors.Controllers
             {
                 // TODO: Add delete logic here
                 Booking _Deletebooking;
-                _Deletebooking = _bookingService.GetBooking(booking.Id);
+                _Deletebooking = _bookingService.GetBooking(booking.BookingID);
                 _bookingService.DeleteBooking(_Deletebooking);
                 return RedirectToAction("Indexthree",
-               new { controller = "Bookings", id = _Deletebooking.Id });
+               new { controller = "Bookings", id = _Deletebooking.BookingID });
             }
             catch (Exception ex)
             {

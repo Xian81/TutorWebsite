@@ -4,108 +4,77 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TutorsdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TutorsdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bookings">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="BookingID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Time" Type="datetime" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Duration" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Tutorid" Type="int" Nullable="false" />
+          <Property Name="TutorID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Subjects">
           <Key>
-            <PropertyRef Name="SubjectId" />
+            <PropertyRef Name="SubjectID" />
           </Key>
-          <Property Name="TutorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AgeRange" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SubjectId" Type="int" Nullable="false" />
+          <Property Name="SubjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Tutors">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="TutorID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Userid" Type="int" Nullable="false" />
+          <Property Name="TutorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" />
+          <Property Name="SecondName" Type="varchar" MaxLength="20" />
+          <Property Name="SubjectSpecialism" Type="varchar" MaxLength="20" />
+          <Property Name="TutorLocation" Type="varchar" MaxLength="20" />
+          <Property Name="DateofBirth" Type="date" />
         </EntityType>
         <EntityType Name="UserRoles">
           <Key>
-            <PropertyRef Name="Roles_Id" />
-            <PropertyRef Name="Users_Id" />
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="Roles_Id" Type="int" Nullable="false" />
-          <Property Name="Users_Id" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Tutors">
-          <End Role="Tutors" Type="Self.Tutors" Multiplicity="1" />
+          <End Role="Tutors" Type="Self.Tutors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tutors">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="TutorID" />
             </Principal>
             <Dependent Role="Bookings">
-              <PropertyRef Name="Tutorid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserRoles_Role">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Roles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserRoles">
-              <PropertyRef Name="Roles_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserRoles_User">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserRoles">
-              <PropertyRef Name="Users_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Tutors" Type="Self.Tutors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Tutors">
-              <PropertyRef Name="Userid" />
+              <PropertyRef Name="TutorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -120,87 +89,79 @@
             <End Role="Tutors" EntitySet="Tutors" />
             <End Role="Bookings" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserRoles_Role" Association="Self.FK_UserRoles_Role">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="UserRoles" EntitySet="UserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserRoles_User" Association="Self.FK_UserRoles_User">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="UserRoles" EntitySet="UserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users" Association="Self.FK_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Tutors" EntitySet="Tutors" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TutorsdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Booking">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="BookingID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Duration" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Tutorid" Type="Int32" Nullable="false" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tutor" Relationship="Self.FK_Tutors" FromRole="Bookings" ToRole="Tutors" />
+          <NavigationProperty Name="Users" Relationship="TutorsdatabaseModel.FK_Bookings_Users" FromRole="Booking" ToRole="User" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Users" Relationship="Self.UserRoles" FromRole="Roles" ToRole="Users" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
-            <PropertyRef Name="SubjectId" />
+            <PropertyRef Name="SubjectID" />
           </Key>
-          <Property Name="TutorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AgeRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Tutor">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="TutorID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Userid" Type="Int32" Nullable="false" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Bookings" Relationship="Self.FK_Tutors" FromRole="Tutors" ToRole="Bookings" />
           <NavigationProperty Name="User" Relationship="Self.FK_Users" FromRole="Tutors" ToRole="Users" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SecondName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectSpecialism" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TutorLocation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateofBirth" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tutors" Relationship="Self.FK_Users" FromRole="Users" ToRole="Tutors" />
           <NavigationProperty Name="Roles" Relationship="Self.UserRoles" FromRole="Users" ToRole="Roles" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bookings" Relationship="TutorsdatabaseModel.FK_Bookings_Users" FromRole="User" ToRole="Booking" />
         </EntityType>
         <Association Name="FK_Tutors">
           <End Role="Tutors" Type="Self.Tutor" Multiplicity="1" />
           <End Role="Bookings" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tutors">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="TutorID" />
             </Principal>
             <Dependent Role="Bookings">
-              <PropertyRef Name="Tutorid" />
+              <PropertyRef Name="TutorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -209,10 +170,10 @@
           <End Role="Tutors" Type="Self.Tutor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="Tutors">
-              <PropertyRef Name="Userid" />
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -238,7 +199,23 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_Bookings_Users" Association="TutorsdatabaseModel.FK_Bookings_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Bookings_Users">
+          <End Type="TutorsdatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="TutorsdatabaseModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,31 +225,29 @@
           <EntitySetMapping Name="Bookings">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.Booking">
               <MappingFragment StoreEntitySet="Bookings">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Tutorid" ColumnName="Tutorid" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.Role">
               <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subjects">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.Subject">
               <MappingFragment StoreEntitySet="Subjects">
-                <ScalarProperty Name="TutorId" ColumnName="TutorId" />
                 <ScalarProperty Name="AgeRange" ColumnName="AgeRange" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Level" ColumnName="Level" />
-                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -280,18 +255,23 @@
           <EntitySetMapping Name="Tutors">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.Tutor">
               <MappingFragment StoreEntitySet="Tutors">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="TutorLocation" ColumnName="TutorLocation" />
+                <ScalarProperty Name="SubjectSpecialism" ColumnName="SubjectSpecialism" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
@@ -300,10 +280,10 @@
           </EntitySetMapping>
           <AssociationSetMapping Name="UserRoles" TypeName="TutorsdatabaseModel.UserRoles" StoreEntitySet="UserRoles">
             <EndProperty Name="Roles">
-              <ScalarProperty Name="Id" ColumnName="Roles_Id" />
+              <ScalarProperty Name="RoleID" ColumnName="RoleID" />
             </EndProperty>
             <EndProperty Name="Users">
-              <ScalarProperty Name="Id" ColumnName="Users_Id" />
+              <ScalarProperty Name="UserID" ColumnName="UserID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
@@ -320,7 +300,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

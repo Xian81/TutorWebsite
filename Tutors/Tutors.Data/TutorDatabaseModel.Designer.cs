@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Chris Howard\Documents\Tutors\Tutors\Tutors.Data\TutorDatabaseModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Chris Howard\source\repos\Tutors\Tutors\Tutors.Data\TutorDatabaseModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

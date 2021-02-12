@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Tutors.Data.IDAO;
+
+
+
 namespace Tutors.Data.DAO
 {
     public class TutorDAO : ITutorDao
@@ -15,10 +18,9 @@ namespace Tutors.Data.DAO
 
         public User GetTutor(int id)
         {
-          
            var _user = from user
                      in _context.Users
-                     where user.Id == id
+                     where user.UserID == id
                      select user;
             return _user.FirstOrDefault();
 
@@ -34,7 +36,6 @@ namespace Tutors.Data.DAO
 
         public void DeleteTutor(User user)
         {
-            
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
@@ -43,7 +44,6 @@ namespace Tutors.Data.DAO
         {
             user.Password = "123qwe";
             _context.Entry(user).State = System.Data.Entity.EntityState.Modified;
-         
             _context.SaveChanges();
         }
 

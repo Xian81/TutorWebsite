@@ -21,75 +21,59 @@
 
     @if (Request.HttpMethod == "POST")
     {
-      
+
             <table class="table" id="resultsgrid">
 
                 <tr>
                  
                     <th>
-                        Name
-                    </th>
-
-                    <th>
-                          Age Range
-                        </th>
-                    <th>
-                       Location
+                    Name
                     </th>
                     <th>
-                       Level 
+                    Age Range
                     </th>
                     <th>
-                      Subject 
+                    Location
+                    </th>
+                    <th>
+                    Level 
+                    </th>
+                    <th>
+                    Subject 
                     </th>
                     <th>Book Lesson</th>
 
                 </tr>
 
 
-                @foreach (var i in Model)
+                @foreach (var item in Model)
                 {
-
                 <tr>
-                  
+                 
                     <td>
-
-                        @Html.DisplayFor(modelItem => i.Name)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-
-                        @Html.DisplayFor(modelItem => i.AgeRange)
+                        @Html.DisplayFor(modelItem => item.AgeRange)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => i.Location)
+                        @Html.DisplayFor(modelItem => item.Location)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => i.Level)
+                        @Html.DisplayFor(modelItem => item.SubjectName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => i.SubjectName)
-                    </td>
-                    <td>
-                        <a class="btn-btn-primary" href="@Url.Action("Details", "Bookings" , new {id=@i.TutorId})">
-                            <button type="button" class="btn btn-primary">View Profile</button>
+                        <a class="btn-btn-primary" href="@Url.Action("Details", "Bookings", new { id = @item.TutorID })">
+                        <button type="button" class="btn btn-primary">View Profile</button>
                         </a>
                     </td>
 
-
-
-
                 </tr>
-
-
 
                 }
 
-
-
-            </table>
-        
-
-    }
+             </table>
+     }
 
 </div>
 

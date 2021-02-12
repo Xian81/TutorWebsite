@@ -37,9 +37,9 @@ namespace Tutors.Services.Service
 
         }
 
-        public void EditSubject(int? id)
+        public void EditSubject(Subject subj)
         {
-            _subjectDAO.EditSubject(id);
+            _subjectDAO.EditSubject(subj);
 
         }
 
@@ -72,7 +72,7 @@ namespace Tutors.Services.Service
 
         public List<TutorViewModel> SearchSubjects(string search)
         {
-            return _subjectDAO.SearchSubjects( search);
+            return _subjectDAO.SearchSubjects(search);
         }
 
         public List<TutorViewModel> SearchSubjects()

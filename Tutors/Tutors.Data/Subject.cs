@@ -14,11 +14,9 @@ namespace Tutors.Data
     
     public partial class Subject
     {
-        public int TutorId { get; set; }
         public string AgeRange { get; set; }
         public string Location { get; set; }
-        public string Level { get; set; }
-        public int SubjectId { get; set; }
+        public int SubjectID { get; set; }
         public string SubjectName { get; set; }
     }
 }

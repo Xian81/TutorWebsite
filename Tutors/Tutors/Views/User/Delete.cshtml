@@ -1,7 +1,7 @@
 ﻿@model Tutors.Data.User
 
 @{
-    ViewBag.Title = "deleteTutor";
+    ViewBag.Title = "Delete";
 }
 
 <h2>Delete</h2>
@@ -11,8 +11,8 @@
     <h4>User</h4>
     <hr />
     <dl class="dl-horizontal">
-        
 
+      
         <dt>
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
@@ -22,11 +22,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.FirstName)
         </dd>
 
         <dt>

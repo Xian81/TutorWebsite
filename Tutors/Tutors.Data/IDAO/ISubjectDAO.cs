@@ -18,26 +18,10 @@ namespace Tutors.Data.IDAO
     {
 
         List<Subject> GetSubjects();
-<<<<<<< HEAD
 
         Subject GetSubject(int id);
 
-        void EditSubject(int? id);
-
-        void DeleteSubject(Subject subject);
-
-        List<User> Users();
-
-        void AddSubject(Subject subject);
-
-        TutorViewModel GetTutorViewModel(int id);
-
-        List<TutorViewModel> SearchSubjects(string search);
-=======
-
-        Subject GetSubject(int id);
-
-        void EditSubject(int? id);
+        void EditSubject(Subject subj);
 
         void DeleteSubject(Subject subject);
 
@@ -49,7 +33,8 @@ namespace Tutors.Data.IDAO
 
         List<TutorViewModel> SearchSubjects(string search);
 
->>>>>>> CreateDatabaseLink
         List<TutorViewModel> SearchSubjects();
+
+        
     }
 }

@@ -16,7 +16,7 @@ namespace Tutors.Services.IService
 
         Subject GetSubject(int id);
 
-        void EditSubject(int? id);
+        void EditSubject(Subject subj);
 
         void DeleteSubject(Subject subject);
 

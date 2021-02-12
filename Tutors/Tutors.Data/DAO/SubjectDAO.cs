@@ -34,20 +34,15 @@ namespace Tutors.Data.DAO
         {
 
             var _subject = from subject
-                      in _context.Subjects
-                           where subject.TutorId == id
+                           in _context.Subjects
+                           where subject.SubjectID == id
                            select subject;
             return _subject.FirstOrDefault();
-
-
-
-
         }
 
-        public void EditSubject(int? id)
+        public void EditSubject(Subject subj)
         {
-            Subject subject = _context.Subjects.FirstOrDefault(x => x.SubjectId == id);
-            _context.Entry(subject).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(subj).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 
@@ -67,20 +62,20 @@ namespace Tutors.Data.DAO
         {
 
             IQueryable<TutorViewModel> _tutorviewmodel = from subject in _context.Subjects
+                                                         from tutor in _context.Tutors
                                                          from user in _context.Users
-                                                         where subject.TutorId == id
-                                                         && subject.TutorId == user.Id
+                                                         where tutor.TutorID == id
+                                                         && subject.SubjectID == user.UserID
                                                          select new TutorViewModel
                                                          {
-                                                             TutorId = subject.TutorId,
-                                                             Name = user.Name,
+                                                             TutorID = tutor.TutorID,
                                                              Address = user.Address,
                                                              Role = user.Role,
                                                              Username = user.UserName,
                                                              SubjectName = subject.SubjectName,
                                                              AgeRange = subject.AgeRange,
-                                                             Location = subject.Location,
-                                                             Level = subject.Level
+                                                             Location = subject.Location
+                                                             
                                                          };
 
             return _tutorviewmodel.ToList().FirstOrDefault();
@@ -90,20 +85,20 @@ namespace Tutors.Data.DAO
         public List<TutorViewModel> SearchSubjects(string search)
         {
             IQueryable<TutorViewModel> _tutorviewmodel = from subject in _context.Subjects
+                                                         from tutor in _context.Tutors
                                                          from user in _context.Users
-                                                         where subject.Level == search || subject.Location == search || subject.AgeRange == search || subject.SubjectName == search
-                                                         && subject.TutorId == user.Id
+                                                         where subject.Location == search || subject.AgeRange == search || subject.SubjectName == search
+                                                         && tutor.TutorID == user.UserID
                                                          select new TutorViewModel
                                                          {
-                                                             TutorId = subject.TutorId,
-                                                             Name = user.Name,
+                                                             TutorID = tutor.TutorID,
                                                              Address = user.Address,
                                                              Role = user.Role,
                                                              Username = user.UserName,
                                                              SubjectName = subject.SubjectName,
                                                              AgeRange = subject.AgeRange,
-                                                             Location = subject.Location,
-                                                             Level = subject.Level
+                                                             Location = subject.Location
+                                                             
                                                          };
 
             return _tutorviewmodel.ToList();
@@ -112,19 +107,19 @@ namespace Tutors.Data.DAO
         public List<TutorViewModel> SearchSubjects()
         {
             IQueryable<TutorViewModel> _tutorviewmodel = from subject in _context.Subjects
+                                                         from tutor in _context.Tutors
                                                          from user in _context.Users
 
                                                          select new TutorViewModel
                                                          {
-                                                             TutorId = subject.TutorId,
-                                                             Name = user.Name,
+                                                             TutorID = tutor.TutorID,
                                                              Address = user.Address,
                                                              Role = user.Role,
                                                              Username = user.UserName,
                                                              SubjectName = subject.SubjectName,
                                                              AgeRange = subject.AgeRange,
-                                                             Location = subject.Location,
-                                                             Level = subject.Level
+                                                             Location = subject.Location
+                                                             
                                                          };
 
             return _tutorviewmodel.ToList();

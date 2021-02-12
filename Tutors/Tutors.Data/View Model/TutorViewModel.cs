@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Tutors.Data.View_Model
 {
     public class TutorViewModel
-    { 
+    {
 
 
         [Key]
-        public int TutorId { get; set; }
+        public int TutorID { get; set; }
 
         public string Name { get; set; }
 
@@ -22,13 +22,11 @@ namespace Tutors.Data.View_Model
 
         public string Username { get; set; }
 
-        public string SubjectName { get; set;}
+        public string SubjectName { get; set; }
 
         public string AgeRange { get; set; }
 
-        public string Location  { get; set; }
-
-        public string Level { get; set; }
+        public string Location { get; set; }
 
     }
 

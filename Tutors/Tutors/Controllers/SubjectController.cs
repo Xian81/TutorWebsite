@@ -13,43 +13,36 @@ namespace Tutors.Controllers
     }
     public class SubjectController : ApplicationController
     {
-
-
-
         // GET: Subject
-        public ActionResult Indextwo()
+        public ActionResult Index()
         {
-            return View("Indextwo", _subjectService.GetSubjects());
+            return View("Index", _subjectService.GetSubjects());
         }
 
         // GET: Subject/Details/5
-        public ActionResult Detailstwo(int id)
+        public ActionResult Details(int id)
         {
-            return View(_subjectService.GetTutorViewModel(id));
+            return View(_subjectService.GetSubject(id));
         }
 
 
         // GET: Subject/Create
-        public ActionResult Createtwo()
+        public ActionResult Create()
         {
-
             return View();
-
-           
+          
         }
 
 
         // POST: Subject/Create
         [HttpPost]
-        public ActionResult Createtwo(Subject subject)
+        public ActionResult Create(Subject subject)
         {
             try
             {
 
-
-
                 _subjectService.AddSubject(subject);
-                return RedirectToAction("Indextwo");
+                return RedirectToAction("Index");
 
             }
 
@@ -63,22 +56,19 @@ namespace Tutors.Controllers
             }
 
 
-
         }
-
-
-
+        [HttpGet]
         // GET: Subject/Edit/5
-        public ActionResult Edittwo(int id)
+        public ActionResult Edit(int id)
         {
 
-            ViewBag.Tutors = new SelectList(_subjectService.Users(), "Id", "Name");
+            ViewBag.Tutors = new SelectList(_subjectService.Users(), "UserID", "FirstName");
             return View(_subjectService.GetSubject(id));
         }
 
         // POST: Subject/Edit/5
         [HttpPost]
-        public ActionResult Edittwo(int id, Subject subject)
+        public ActionResult Edit(int id, Subject subject)
 
 
         {
@@ -87,10 +77,10 @@ namespace Tutors.Controllers
 
                 // TODO: Add update logic here
 
-                ViewBag.Tutors = new SelectList(_subjectService.Users(), "Id", "Name");
-                subject.TutorId = ViewBag.Tutors;
-                _subjectService.EditSubject(2);
-                return RedirectToAction("Indextwo");
+                //ViewBag.Tutors = new SelectList(_subjectService.Users(), "UserID", "FirstName");
+                //subject.SubjectID = ViewBag.Tutors;
+                _subjectService.EditSubject(subject);
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
@@ -100,20 +90,26 @@ namespace Tutors.Controllers
             }
         }
 
-        // POST: Subject/Delete/5
 
-        public ActionResult Deletetwo(int id)
+      [HttpGet] 
+        public ActionResult Delete(int id)
+        {
+            return View(_subjectService.GetSubject(id));
+        }
+
+        // POST: Subject/Delete/5
+   [HttpPost]
+        public ActionResult Delete(int id, Subject _subject)
         {
             try
             {
                 // TODO: Add delete logic here
 
-
-                Subject _Deletesubject;
-                _Deletesubject = _subjectService.GetSubject(id);
-                _subjectService.DeleteSubject(_Deletesubject);
-
-                return RedirectToAction("Indextwo");
+               _subject = _subjectService.GetSubject(id);
+               _subjectService.DeleteSubject(_subject);
+                return RedirectToAction("Index",
+                new { controller = "Subject", id = _subject.SubjectID });
+             
 
             }
             catch (Exception ex)
@@ -126,7 +122,7 @@ namespace Tutors.Controllers
 
         //Get Search Subjects Database 
 
-        public ActionResult SearchSubjects()
+        public ActionResult Search()
         {
             return View(_subjectService.SearchSubjects());
 
@@ -135,7 +131,7 @@ namespace Tutors.Controllers
         //Post Search Subject Database  
 
         [HttpPost]
-        public ActionResult SearchSubjects(string search)
+        public ActionResult Search(string search)
         {
             return View(_subjectService.SearchSubjects(search));
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Tutors.Data;
@@ -27,7 +28,7 @@ namespace Tutors.Controllers
         }
 
         // GET: Tutor/Create/add 
-        
+
         public ActionResult Create()
         {
 
@@ -36,17 +37,14 @@ namespace Tutors.Controllers
 
         // POST: Tutor/Create
         [HttpPost]
-        public ActionResult Create( User user)
+        public ActionResult Create(User user)
         {
             try
             {
-                
-               
                 _tutorService.AddTutor(user);
-
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -56,22 +54,22 @@ namespace Tutors.Controllers
 
         // GET: Tutor/Edit/5
         [HttpGet]
-        public ActionResult EditTutor (int id)
+        public ActionResult Edit(int id)
         {
             return View(_tutorService.GetTutor((id)));
         }
 
         // POST: Tutor/Edit/5
         [HttpPost]
-        public ActionResult EditTutor (int id, User user)
+        public ActionResult Edit(int id, User user)
         {
             try
-            { 
+            {
                 _tutorService.EditTutor(user);
 
-                return RedirectToAction("Index", new{ id = user.Id,  controller = "User"});
+                return RedirectToAction("Index", new { id = user.UserID, controller = "User" });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 throw;
@@ -79,28 +77,37 @@ namespace Tutors.Controllers
         }
 
         // GET: Tutor/Delete/5
-        public ActionResult DeleteTutor(int id)
+        public ActionResult Delete(int id)
         {
-            return View(_tutorService.GetTutor((id)));
+            return View(_tutorService.GetTutor(id));
         }
 
         // POST: Tutor/Delete/5
         [HttpPost]
-        public ActionResult DeleteTutor(User user)
+        public ActionResult Delete(int id, User u)
         {
             try
             {
-                User _Deletetutor;
-                _Deletetutor = _tutorService.GetTutor(user.Id);
-                _tutorService.DeleteTutor(_Deletetutor);
-                 return RedirectToAction("Index",
-                new {controller="User",id = _Deletetutor.Id});
+                u = _tutorService.GetTutor(id);
+                _tutorService.DeleteTutor(u);
+                return RedirectToAction("Index",
+                 new { controller = "User", id = u.UserID });
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+              Console.WriteLine(ex.Message);
+              throw;
+                
             }
+
+
         }
+
+
     }
 }
+
+
+
+        

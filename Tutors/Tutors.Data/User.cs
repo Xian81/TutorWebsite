@@ -19,19 +19,22 @@ namespace Tutors.Data
         {
             this.Tutors = new HashSet<Tutor>();
             this.Roles = new HashSet<Role>();
+            this.Bookings = new HashSet<Booking>();
         }
     
-        public int Id { get; set; }
+        public int UserID { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
-        public string Name { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string Role { get; set; }
+        public string FirstName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tutor> Tutors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role> Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

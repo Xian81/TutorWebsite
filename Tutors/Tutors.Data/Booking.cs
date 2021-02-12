@@ -14,13 +14,14 @@ namespace Tutors.Data
     
     public partial class Booking
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
+        public int BookingID { get; set; }
+        public int UserID { get; set; }
         public System.DateTime Time { get; set; }
         public System.DateTime Date { get; set; }
         public decimal Duration { get; set; }
-        public int Tutorid { get; set; }
+        public int TutorID { get; set; }
     
         public virtual Tutor Tutor { get; set; }
+        public virtual User Users { get; set; }
     }
 }

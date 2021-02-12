@@ -364,11 +364,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Manage\Roles\Create.cshtml" />
     <Content Include="Views\Manage\Roles\Delete.cshtml" />
     <Content Include="Views\Manage\Roles\Details.cshtml" />
@@ -376,10 +371,10 @@
     <Content Include="Views\Manage\Roles\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
-    <Content Include="Views\User\editTutor.cshtml" />
-    <Content Include="Views\User\deleteTutor.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
-    <Content Include="Views\Subject\Indextwo.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -391,17 +386,17 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Subject\Detailstwo.cshtml" />
-    <Content Include="Views\Subject\Edittwo.cshtml" />
-    <Content Include="Views\Subject\Deletetwo.cshtml" />
-    <Content Include="Views\Subject\Createtwo.cshtml" />
-    <Content Include="Views\Bookings\Createthree.cshtml" />
-    <Content Include="Views\Bookings\Deletethree.cshtml" />
-    <Content Include="Views\Bookings\Detailsthree.cshtml" />
-    <Content Include="Views\Bookings\Editthree.cshtml" />
-    <Content Include="Views\Bookings\Indexthree.cshtml" />
-    <Content Include="Views\Subject\SearchSubjects.cshtml" />
-    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Subject\Details.cshtml" />
+    <Content Include="Views\Subject\Edit.cshtml" />
+    <Content Include="Views\Subject\Create.cshtml" />
+    <Content Include="Views\Booking\Createthree.cshtml" />
+    <Content Include="Views\Booking\Deletethree.cshtml" />
+    <Content Include="Views\Booking\Detailsthree.cshtml" />
+    <Content Include="Views\Booking\Editthree.cshtml" />
+    <Content Include="Views\Booking\Indexthree.cshtml" />
+    <Content Include="Views\Subject\Search.cshtml" />
+    <Content Include="Views\Booking\Details.cshtml" />
+    <Content Include="Views\Subject\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

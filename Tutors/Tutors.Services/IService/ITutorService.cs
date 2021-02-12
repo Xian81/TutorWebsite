@@ -11,20 +11,14 @@ namespace Tutors.Services.IService
     public interface ITutorService
     {
 
-        // get
         User GetTutor(int id);
 
 
-        // add 
         void AddTutor(User user);
-
-        //delete
 
         void DeleteTutor(User user);
 
-        //edit 
-
-        void EditTutor(User user);
+         void EditTutor(User user);
 
         //Tutor view model 
 

@@ -6,8 +6,7 @@ namespace Tutors.Data.IDAO
     {
 
         User GetTutor(int id);
-
-      
+              
         void DeleteTutor(User user);
 
         void EditTutor(User user);
@@ -16,7 +15,7 @@ namespace Tutors.Data.IDAO
 
         void AddTutor(User user);
 
-        //the  class user type needs to match what is returned. The interface must match to the link to return the database.  
+         
     }
 
 

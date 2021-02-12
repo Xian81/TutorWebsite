@@ -15,7 +15,7 @@
 
 
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UserName)
@@ -39,7 +39,7 @@
 
 
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
@@ -57,9 +57,9 @@
 
 
         <td>
-            @Html.ActionLink("Edit", "editTutor", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "deleteTutor", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
         </td>
     </tr>
 }
