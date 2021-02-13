@@ -69,15 +69,19 @@ namespace Tutors.Services.Service
             return _subjectDAO.Users();
 
             }
+        public List<TutorViewModel> SearchSubjects()
+        {
+            return _subjectDAO.SearchSubjects();
+        }
+
+
+
 
         public List<TutorViewModel> SearchSubjects(string search)
         {
             return _subjectDAO.SearchSubjects(search);
         }
 
-        public List<TutorViewModel> SearchSubjects()
-        {
-            return _subjectDAO.SearchSubjects();
-        }
+       
     }
  }

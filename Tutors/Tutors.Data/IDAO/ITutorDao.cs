@@ -2,20 +2,41 @@
 
 namespace Tutors.Data.IDAO
 {
-    public interface ITutorDao
+    public interface ITutorDAO
     {
 
-        User GetTutor(int id);
+        User GetUser(int id);
               
-        void DeleteTutor(User user);
+        void DeleteUser(User user);
 
-        void EditTutor(User user);
+        void EditUser(User user);
 
-        List<User> GetTutors();
+        List<User> GetUsers();
 
-        void AddTutor(User user);
+        void AddUser(User user);
 
-         
+
+        // Tutors CRUD Funct
+
+
+
+        Tutor GetTutor(int id);
+
+        void DeleteTutor(Tutor user);
+
+        void EditTutor(Tutor user);
+
+        List<Tutor> GetTutors();
+
+        void AddTutor(Tutor user);
+
+
+
+
+
+
+
+
     }
 
 

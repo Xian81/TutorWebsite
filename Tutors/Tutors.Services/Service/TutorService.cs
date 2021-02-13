@@ -9,49 +9,81 @@ using Tutors.Data.DAO;
 namespace Tutors.Services.Service
 {
     public class TutorService : ITutorService
-    {   
-        private ITutorDao _TutorDao;
+    {
+        private ITutorDAO _TutorDAO;
 
         public TutorService()
         {
-            _TutorDao = new TutorDAO();
+            _TutorDAO = new TutorDAO();
         }
 
 
-        
-        public User GetTutor(int id)
+
+        public User GetUser(int id)
         {
-            return _TutorDao.GetTutor(id);
+            return _TutorDAO.GetUser(id);
         }
 
-        
-        public void AddTutor(User user)
+
+        public void AddUser(User user)
         {
-            _TutorDao.AddTutor(user);
+            _TutorDAO.AddUser(user);
         }
 
-        
-        public void DeleteTutor(User user)
+
+        public void DeleteUser(User user)
 
         {
-            _TutorDao.DeleteTutor(user);
+            _TutorDAO.DeleteUser(user);
         }
 
-        
 
-        public void EditTutor(User user)
+
+        public void EditUser(User user)
         {
-            _TutorDao.EditTutor(user);
+            _TutorDAO.EditUser(user);
         }
 
 
-        // get tutor view model
 
-        public List<User> GetTutors()
+        public List<User> GetUsers()
         {
-            return _TutorDao.GetTutors();
+            return _TutorDAO.GetUsers();
         }
 
-       
+
+        // Tutor CRUD Funct
+
+        public Tutor GetTutor(int id)
+        {
+
+            return _TutorDAO.GetTutor(id);
+        }
+
+        public void AddTutor(Tutor tutor)
+        {
+            _TutorDAO.AddTutor(tutor);
+        }
+
+
+         public void DeleteTutor(Tutor tutor)
+        {
+            _TutorDAO.DeleteTutor(tutor);
+        }
+
+        public void EditTutor(Tutor tutor)
+        {
+            _TutorDAO.EditTutor(tutor);
+        }
+
+        public List<Tutor> GetTutors()
+        {
+            return _TutorDAO.GetTutors();
+        }
+
+
+
+
+
     }
 }

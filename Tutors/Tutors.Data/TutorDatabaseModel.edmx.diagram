@@ -7,13 +7,12 @@
       <Diagram DiagramId="8f6c69199de34bd59c755aa4065eb005" Name="Diagram1">
         <EntityTypeShape EntityType="TutorsdatabaseModel.Booking" Width="1.5" PointX="9.375" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorsdatabaseModel.Role" Width="1.5" PointX="0.625" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorsdatabaseModel.Subject" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorsdatabaseModel.Subject" Width="1.5" PointX="7" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorsdatabaseModel.Tutor" Width="1.5" PointX="5.875" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorsdatabaseModel.User" Width="1.5" PointX="3.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorsdatabaseModel.User" Width="1.5" PointX="3.125" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="TutorsdatabaseModel.FK_Tutors" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorsdatabaseModel.FK_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorsdatabaseModel.UserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorsdatabaseModel.FK_Bookings_Users" />
+        <EntityTypeShape EntityType="TutorsdatabaseModel.AgeRanges" Width="1.5" PointX="2.625" PointY="5.125" />
+        <AssociationConnector Association="TutorsdatabaseModel.FK_Users_Roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

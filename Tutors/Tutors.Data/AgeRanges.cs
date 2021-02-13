@@ -12,9 +12,9 @@ namespace Tutors.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Subject
+    public partial class AgeRanges
     {
-        public int SubjectID { get; set; }
-        public string SubjectName { get; set; }
+        public int AgeRangeID { get; set; }
+        public string AgeRange { get; set; }
     }
 }

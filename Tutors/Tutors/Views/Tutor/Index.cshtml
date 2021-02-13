@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Tutors.Data.Tutor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TutorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TutorLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TutorID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SecondName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TutorLocation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateofBirth)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.TutorID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.TutorID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.TutorID })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,7 +1,7 @@
 ﻿@model Tutors.Data.Booking
 
 @{
-    ViewBag.Title = "Deletethree";
+    ViewBag.Title = "Delete";
 }
 
 <h2>Delete</h2>
@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.ValueFor(model => model.UserID)
+            @Html.DisplayFor(model => model.UserID)
         </dd>
 
         <dt>
@@ -24,8 +24,7 @@
         </dt>
 
         <dd>
-            @Html.ValueFor(model => model.Time, "{0:hh:mm tt}")
-            
+            @Html.DisplayFor(model => model.Time)
         </dd>
 
         <dt>
@@ -33,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.ValueFor(model => model.Date, "{0:dd/MM/yyyy}")
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
         <dt>
@@ -41,7 +40,31 @@
         </dt>
 
         <dd>
-            @Html.ValueFor(model => model.Duration, "{0:hh:mm}")
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRangeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRangeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.FirstName)
         </dd>
 
     </dl>
@@ -51,7 +74,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Indexthree")
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>

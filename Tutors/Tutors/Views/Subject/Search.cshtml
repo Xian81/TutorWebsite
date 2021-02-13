@@ -11,7 +11,7 @@
 <div class="container">
 
 
-    @using (Html.BeginForm("SearchSubjects", "Subject"))
+    @using (Html.BeginForm("Search", "Subject"))
     {
         <center>@Html.TextBox("Search", null , new { @class = "form-control" })</center>
         <br />
@@ -36,9 +36,6 @@
                     Location
                     </th>
                     <th>
-                    Level 
-                    </th>
-                    <th>
                     Subject 
                     </th>
                     <th>Book Lesson</th>
@@ -51,7 +48,7 @@
                 <tr>
                  
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.AgeRange)

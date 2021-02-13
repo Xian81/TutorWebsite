@@ -9,29 +9,29 @@ using Tutors.Data;
 namespace Tutors.Controllers
 {
     [Authorize]
-    public class BookingsController : ApplicationController
+    public class BookingController : ApplicationController
     {
         // GET: Bookings
-        public ActionResult Indexthree()
+        public ActionResult Index()
         {
-            return View("Indexthree", _bookingService.GetBookings());
+            return View("Index", _bookingService.GetBookings());
         }
 
         // GET: Bookings/Details/5
-        public ActionResult Detailsthree(int id)
+        public ActionResult Details(int id)
         {
             return View(_bookingService.GetBooking(id));
         }
 
         // GET: Bookings/Create
-        public ActionResult Createthree()
+        public ActionResult Create()
         {
             return View();
         }
 
         // POST: Bookings/Create
         [HttpPost]
-        public ActionResult Createthree(Booking booking)
+        public ActionResult Create(Booking booking)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Tutors.Controllers
 
                 _bookingService.AddBooking(booking);
 
-                return RedirectToAction("Indexthree");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -49,20 +49,20 @@ namespace Tutors.Controllers
         }
 
         // GET: Bookings/Edit/5
-        public ActionResult Editthree(int id)
+        public ActionResult Edit(int id)
         {
             return View(_bookingService.GetBooking(id));
         }
 
         // POST: Bookings/Edit/5
         [HttpPost]
-        public ActionResult Editthree(int id, Booking booking)
+        public ActionResult Edit(int id, Booking booking)
         {
             try
             {
                 // TODO: Add update logic here
                 _bookingService.EditBooking(booking);
-                return RedirectToAction("Indexthree", new { id = booking.BookingID, controller = "Bookings" });
+                return RedirectToAction("Index", new { id = booking.BookingID, controller = "Bookings" });
             }
             catch (Exception ex)
             {
@@ -72,14 +72,14 @@ namespace Tutors.Controllers
         }
 
         // GET: Bookings/Delete/5
-        public ActionResult Deletethree(int id)
+        public ActionResult Delete(int id)
         {
             return View(_bookingService.GetBooking((id)));
         }
 
         // POST: Bookings/Delete/5
         [HttpPost]
-        public ActionResult Deletethree(int id, Booking booking)
+        public ActionResult Delete(int id, Booking booking)
         {
             try
             {
@@ -87,22 +87,14 @@ namespace Tutors.Controllers
                 Booking _Deletebooking;
                 _Deletebooking = _bookingService.GetBooking(booking.BookingID);
                 _bookingService.DeleteBooking(_Deletebooking);
-                return RedirectToAction("Indexthree",
-               new { controller = "Bookings", id = _Deletebooking.BookingID });
+                return RedirectToAction("Index",
+               new { controller = "Booking", id = _Deletebooking.BookingID });
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 throw;
             }
-
-
-        }
-
-        // Get Booking Tutor Details 
-        public ActionResult Details(int id)
-        {
-            return View(_bookingService.Booking(id));
 
 
         }

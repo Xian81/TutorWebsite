@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeRanges.cs">
+      <DependentUpon>TutorDatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Booking.cs">
       <DependentUpon>TutorDatabaseModel.tt</DependentUpon>
     </Compile>
@@ -66,7 +69,7 @@
     <Compile Include="DAO\TutorDAO.cs" />
     <Compile Include="IDAO\IBookingDAO.cs" />
     <Compile Include="IDAO\ISubjectDAO.cs" />
-    <Compile Include="IDAO\ITutorDao.cs" />
+    <Compile Include="IDAO\ITutorDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
       <DependentUpon>TutorDatabaseModel.tt</DependentUpon>

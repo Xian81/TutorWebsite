@@ -14,7 +14,7 @@ namespace Tutors.Data.View_Model
         [Key]
         public int TutorID { get; set; }
 
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         public string Address { get; set; }
 

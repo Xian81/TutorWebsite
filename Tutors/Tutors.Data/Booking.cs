@@ -20,8 +20,9 @@ namespace Tutors.Data
         public System.DateTime Date { get; set; }
         public decimal Duration { get; set; }
         public int TutorID { get; set; }
+        public Nullable<int> AgeRangeID { get; set; }
+        public Nullable<int> SubjectID { get; set; }
     
         public virtual Tutor Tutor { get; set; }
-        public virtual User Users { get; set; }
     }
 }

@@ -31,10 +31,12 @@ namespace Tutors.Data.IDAO
 
         TutorViewModel GetTutorViewModel(int id);
 
-        List<TutorViewModel> SearchSubjects(string search);
-
         List<TutorViewModel> SearchSubjects();
 
+
+        List<TutorViewModel> SearchSubjects(string search);
+
+      
         
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tutors.Data;
+using Tutors.Data.View_Model;
 
 namespace Tutors.Controllers
 {
@@ -30,7 +31,7 @@ namespace Tutors.Controllers
         public ActionResult Create()
         {
             return View();
-          
+
         }
 
 
@@ -91,25 +92,25 @@ namespace Tutors.Controllers
         }
 
 
-      [HttpGet] 
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             return View(_subjectService.GetSubject(id));
         }
 
         // POST: Subject/Delete/5
-   [HttpPost]
+        [HttpPost]
         public ActionResult Delete(int id, Subject _subject)
         {
             try
             {
                 // TODO: Add delete logic here
 
-               _subject = _subjectService.GetSubject(id);
-               _subjectService.DeleteSubject(_subject);
+                _subject = _subjectService.GetSubject(id);
+                _subjectService.DeleteSubject(_subject);
                 return RedirectToAction("Index",
                 new { controller = "Subject", id = _subject.SubjectID });
-             
+
 
             }
             catch (Exception ex)
@@ -120,8 +121,16 @@ namespace Tutors.Controllers
         }
 
 
-        //Get Search Subjects Database 
+        [HttpGet]
+        public ActionResult SearchOne(int id)
+        {
+            return View(_subjectService.GetTutorViewModel( id));
+        }
 
+
+
+        
+        [HttpGet]
         public ActionResult Search()
         {
             return View(_subjectService.SearchSubjects());
