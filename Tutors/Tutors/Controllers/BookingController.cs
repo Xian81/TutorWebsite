@@ -26,6 +26,9 @@ namespace Tutors.Controllers
         // GET: Bookings/Create
         public ActionResult Create()
         {
+            ViewBag.Users = (new SelectList(_subjectService.Users(), "UserID", "UserID"));
+            ViewBag.Tutors = (new SelectList(_tutorService.GetTutors(), "TutorID", "TutorID"));
+
             return View();
         }
 
@@ -35,8 +38,6 @@ namespace Tutors.Controllers
         {
             try
             {
-
-
                 _bookingService.AddBooking(booking);
 
                 return RedirectToAction("Index");
@@ -51,6 +52,8 @@ namespace Tutors.Controllers
         // GET: Bookings/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.Users = (new SelectList(_subjectService.Users(), "UserID", "UserID"));
+            ViewBag.Tutors = (new SelectList(_tutorService.GetTutors(), "TutorID", "TutorID"));
             return View(_bookingService.GetBooking(id));
         }
 
@@ -62,7 +65,7 @@ namespace Tutors.Controllers
             {
                 // TODO: Add update logic here
                 _bookingService.EditBooking(booking);
-                return RedirectToAction("Index", new { id = booking.BookingID, controller = "Bookings" });
+                return RedirectToAction("Index", new { id = booking.BookingID, controller = "Booking" });
             }
             catch (Exception ex)
             {

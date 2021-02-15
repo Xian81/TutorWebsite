@@ -24,15 +24,16 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Time)
-        </dd>
+            @(Model.Time == null ? "" : ((DateTime)Model.Time).ToString("HH:mm"))
+            
 
         <dt>
             @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Date)
+            @(Model.Date == null ? "" : ((DateTime)Model.Date).ToString("dd MMM yyyy"))
+
         </dd>
 
         <dt>

@@ -22,7 +22,7 @@ namespace Tutors.Data.DAO
 
         public List<User> Users()
         {
-            return _context.Users.Where(x => x.RoleID.ToString() == "Tutor").ToList();
+            return _context.Users.Where(x => x.RoleID == 2).ToList();
         }
 
         public List<Subject> GetSubjects()

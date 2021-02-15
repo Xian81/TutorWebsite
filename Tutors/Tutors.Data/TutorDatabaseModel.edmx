@@ -62,10 +62,8 @@
           <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="RoleID" Type="int" />
         </EntityType>
-        <Association Name="FK_Tutors">
-          <End Role="Tutors" Type="Self.Tutors" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Bookings_Tutors">
+          <End Role="Tutors" Type="Self.Tutors" Multiplicity="1" />
           <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tutors">
@@ -95,7 +93,7 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tutors" EntityType="Self.Tutors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Tutors" Association="Self.FK_Tutors">
+          <AssociationSet Name="FK_Bookings_Tutors" Association="Self.FK_Bookings_Tutors">
             <End Role="Tutors" EntitySet="Tutors" />
             <End Role="Bookings" EntitySet="Bookings" />
           </AssociationSet>

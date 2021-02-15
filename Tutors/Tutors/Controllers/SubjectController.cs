@@ -41,7 +41,7 @@ namespace Tutors.Controllers
         {
             try
             {
-
+                ViewBag.Users = new SelectList(_subjectService.Users(), "UserID", "UserID");
                 _subjectService.AddSubject(subject);
                 return RedirectToAction("Index");
 

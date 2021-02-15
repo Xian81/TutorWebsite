@@ -16,12 +16,8 @@
         <th>
         @Html.DisplayNameFor(model => model.SubjectName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AgeRange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
+        
+       
     </tr>
 
     @foreach (var item in Model)
@@ -32,12 +28,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.SubjectName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgeRange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
+        
           <td>
 
             @Html.ActionLink("Edit", "Edit", new { id = item.SubjectID }) |
