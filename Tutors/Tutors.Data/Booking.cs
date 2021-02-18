@@ -16,8 +16,8 @@ namespace Tutors.Data
     {
         public int BookingID { get; set; }
         public int UserID { get; set; }
-        public System.DateTime Time { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public decimal Duration { get; set; }
         public int TutorID { get; set; }
         public Nullable<int> AgeRangeID { get; set; }

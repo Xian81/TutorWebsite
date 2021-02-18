@@ -18,8 +18,8 @@
           </Key>
           <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="Time" Type="datetime" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Time" Type="datetime2" Precision="0" />
+          <Property Name="Date" Type="date" />
           <Property Name="Duration" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TutorID" Type="int" Nullable="false" />
           <Property Name="AgeRangeID" Type="int" />
@@ -112,8 +112,8 @@
           </Key>
           <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Time" Type="DateTime" Precision="0" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Duration" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TutorID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tutor" Relationship="Self.FK_Tutors" FromRole="Bookings" ToRole="Tutors" />
@@ -216,11 +216,11 @@
           <EntitySetMapping Name="Bookings">
             <EntityTypeMapping TypeName="TutorsdatabaseModel.Booking">
               <MappingFragment StoreEntitySet="Bookings">
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
                 <ScalarProperty Name="AgeRangeID" ColumnName="AgeRangeID" />
                 <ScalarProperty Name="BookingID" ColumnName="BookingID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="TutorID" ColumnName="TutorID" />

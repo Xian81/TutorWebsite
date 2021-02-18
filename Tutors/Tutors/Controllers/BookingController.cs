@@ -87,11 +87,10 @@ namespace Tutors.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Booking _Deletebooking;
-                _Deletebooking = _bookingService.GetBooking(booking.BookingID);
-                _bookingService.DeleteBooking(_Deletebooking);
+               booking = _bookingService.GetBooking(id);
+                _bookingService.DeleteBooking(booking);
                 return RedirectToAction("Index",
-               new { controller = "Booking", id = _Deletebooking.BookingID });
+               new { controller = "Booking", id = booking.BookingID });
             }
             catch (Exception ex)
             {
