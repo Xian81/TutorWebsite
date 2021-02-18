@@ -30,5 +30,6 @@ namespace Tutors.Data
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Tutor> Tutors { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AgeRanges> AgeRanges { get; set; }
     }
 }

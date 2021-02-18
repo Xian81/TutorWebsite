@@ -11,17 +11,30 @@ namespace Tutors.Services.IService
     public interface ITutorService
     {
 
-        User GetTutor(int id);
+        User GetUser(int id);
+
+        void AddUser(User user);
+
+        void DeleteUser(User user);
+
+        void EditUser(User user);
+               
+        List<User> GetUsers();
 
 
-        void AddTutor(User user);
 
-        void DeleteTutor(User user);
+        //Tutor CRUD Funct
 
-         void EditTutor(User user);
+        Tutor GetTutor(int id);
 
-        //Tutor view model 
+        void AddTutor(Tutor tutor);
 
-        List<User> GetTutors();
+        void DeleteTutor(Tutor tutor);
+
+        void EditTutor(Tutor tutor);
+
+        List<Tutor> GetTutors();
+
+
     }
 }

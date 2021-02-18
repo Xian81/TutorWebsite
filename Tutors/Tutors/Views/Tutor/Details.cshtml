@@ -1,0 +1,67 @@
+﻿@model Tutors.Data.Tutor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tutor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofBirth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TutorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

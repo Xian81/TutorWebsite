@@ -256,11 +256,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
-    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\TutorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -389,14 +390,19 @@
     <Content Include="Views\Subject\Details.cshtml" />
     <Content Include="Views\Subject\Edit.cshtml" />
     <Content Include="Views\Subject\Create.cshtml" />
-    <Content Include="Views\Booking\Createthree.cshtml" />
-    <Content Include="Views\Booking\Deletethree.cshtml" />
-    <Content Include="Views\Booking\Detailsthree.cshtml" />
-    <Content Include="Views\Booking\Editthree.cshtml" />
-    <Content Include="Views\Booking\Indexthree.cshtml" />
     <Content Include="Views\Subject\Search.cshtml" />
-    <Content Include="Views\Booking\Details.cshtml" />
     <Content Include="Views\Subject\Delete.cshtml" />
+    <Content Include="Views\Subject\SearchOne.cshtml" />
+    <Content Include="Views\Tutor\Index.cshtml" />
+    <Content Include="Views\Tutor\Details.cshtml" />
+    <Content Include="Views\Tutor\Create.cshtml" />
+    <Content Include="Views\Tutor\Edit.cshtml" />
+    <Content Include="Views\Tutor\Delete.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\Create.cshtml" />
+    <Content Include="Views\Booking\Details.cshtml" />
+    <Content Include="Views\Booking\Edit.cshtml" />
+    <Content Include="Views\Booking\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -411,6 +417,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Application\" />
+    <Folder Include="Views\Booking\DisplayTemplates\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
+    <Folder Include="Views\Shared\EditorTemplatesTwo\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tutors.Data\Tutors.Data.csproj">

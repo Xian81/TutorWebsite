@@ -12,17 +12,9 @@ namespace Tutors.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Booking
+    public partial class AgeRanges
     {
-        public int BookingID { get; set; }
-        public int UserID { get; set; }
-        public Nullable<System.DateTime> Time { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public decimal Duration { get; set; }
-        public int TutorID { get; set; }
-        public Nullable<int> AgeRangeID { get; set; }
-        public Nullable<int> SubjectID { get; set; }
-    
-        public virtual Tutor Tutor { get; set; }
+        public int AgeRangeID { get; set; }
+        public string AgeRange { get; set; }
     }
 }

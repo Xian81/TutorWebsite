@@ -24,12 +24,10 @@ namespace Tutors.Data
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public string SubjectSpecialism { get; set; }
         public string TutorLocation { get; set; }
         public Nullable<System.DateTime> DateofBirth { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual User User { get; set; }
     }
 }
